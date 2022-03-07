@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import Topics from "./Topics";
 
 export default function Main() {
   const [articlesList, setArticlesList] = useState([]);
@@ -22,7 +23,7 @@ export default function Main() {
 
   return (
     <div>
-      <h1>home</h1>
+      <Topics />
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
