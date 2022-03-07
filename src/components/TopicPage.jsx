@@ -19,8 +19,6 @@ export default function TopicPage() {
     });
   }, [topic]);
 
-  console.log(articlesList);
-
   if (isLoading) {
     return <h3>...is loading</h3>;
   }
@@ -28,7 +26,7 @@ export default function TopicPage() {
   return (
     <div>
       <Topics />
-      <h3>#{topic}</h3>
+      <h3 className="my-2">#{topic}</h3>
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
