@@ -32,7 +32,6 @@ export function patchVotesById(article_id) {
   return api
     .patch(`/articles/${article_id}`, { inc_votes: 1 })
     .then(({ data }) => {
-      console.log(article_id, "<<api id");
-      console.log(data);
+      return data;
     });
 }

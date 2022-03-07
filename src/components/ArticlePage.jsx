@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticlesById } from "../utils/api";
-import VoteHandler from "./VoteHandler";
+import { patchVotesById } from "../utils/api";
 
 export default function ArticlePage() {
   const [article, setArticle] = useState([]);
@@ -14,13 +14,18 @@ export default function ArticlePage() {
     setIsLoading(true);
     fetchArticlesById(article_id).then((res) => {
       setArticle(res);
+      setVoteCount(res.votes);
       setIsLoading(false);
     });
   }, [article_id]);
 
   const handleVoteClick = () => {
-    setVoteCount((currCount) => currCount + 1);
-    VoteHandler(article_id);
+    setVoteCount((currentCount) => {
+      return currentCount + 1;
+    });
+    patchVotesById(article_id).then((res) => {
+      console.log(res);
+    });
   };
 
   if (isLoading) {
@@ -40,7 +45,7 @@ export default function ArticlePage() {
               <p className="card-text col-md-4">
                 {article.comment_count} comments
               </p>
-              <p className="card-text col-md-4">{article.votes} votes</p>
+              <p className="card-text col-md-4">{voteCount} votes</p>
             </div>
 
             <button

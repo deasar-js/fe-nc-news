@@ -13,7 +13,6 @@ export default function TopicPage() {
   useEffect(() => {
     setIsLoading(true);
     fetchArticlesByTopic(topic).then((res) => {
-      console.log(res);
       setArticlesList(res);
       setIsLoading(false);
     });
