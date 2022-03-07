@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+// import { useState } from "react";
+import NavigationBar from "./components/NavigationBar";
+import Main from "./components/Main";
 
-function App() {
+export default function App() {
+  // const [loggedInUser, setLoggedInUser] = useState({
+  //   username: "tickle122",
+  //   name: "Tom Tickle",
+  //   avatar_url:
+  //     "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
+  // });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavigationBar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </div>
+    </>
   );
 }
-
-export default App;
