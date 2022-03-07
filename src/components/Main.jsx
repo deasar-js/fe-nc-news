@@ -14,7 +14,7 @@ export default function Main() {
     });
   }, []);
 
-  console.log(articlesList, ";ist<<<<<");
+  console.log(articlesList, "list<<<<<");
 
   if (isLoading) {
     return <h2 className="loading">...is loading</h2>;
