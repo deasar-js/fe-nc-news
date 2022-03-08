@@ -43,9 +43,13 @@ export function fetchCommentsByArticleId(article_id) {
 }
 
 export function postComment(article_id, comment) {
+  console.log(article_id, comment, "api pre post");
   return api
-    .post(`/article/${article_id}/comments`, comment)
+    .post(`/articles/${article_id}/comments`, comment)
     .then(({ data }) => {
-      console.log(data, "comment post api");
+      return data.comment;
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }

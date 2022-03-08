@@ -81,7 +81,7 @@ export default function ArticlePage() {
         </div>
       </div>
       <button onClick={() => handlePostCommentClick()}>post a comment</button>
-      {postComment ? <NewComment /> : ""}
+      {postComment ? <NewComment id={article_id} /> : ""}
       <div className="comments-container">
         <h3>comments</h3>
         {comments.map((comment) => {
