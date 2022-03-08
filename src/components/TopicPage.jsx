@@ -19,7 +19,13 @@ export default function TopicPage() {
   }, [topic]);
 
   if (isLoading) {
-    return <h3>...is loading</h3>;
+    return (
+      <div class="text-center my-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -25,13 +25,19 @@ export default function Main() {
   }, []);
 
   if (isLoading) {
-    return <h2 className="loading">...is loading</h2>;
+    return (
+      <div class="text-center my-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div>
-      <SortNav />
       <Topics />
+      <SortNav />
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
