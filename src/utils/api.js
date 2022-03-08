@@ -35,3 +35,9 @@ export function patchVotesById(article_id) {
       return data;
     });
 }
+
+export function fetchCommentsByArticleId(article_id) {
+  return api.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+}
