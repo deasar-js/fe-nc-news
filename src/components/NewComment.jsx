@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postComment } from "../utils/api";
 
-export default function NewComment({ id }) {
+export default function NewComment({ setPosted, id }) {
   const [comment, setComment] = useState("");
   const [username, setUsername] = useState("");
   const [commentPosted, setCommentPosted] = useState();
@@ -16,6 +16,11 @@ export default function NewComment({ id }) {
       setCommentPosted(res.comment_id);
       setUsername("");
       setComment("");
+      setTimeout(() => {
+        setPosted((preValue) => {
+          return preValue + 1;
+        });
+      }, 3000);
     });
   };
 

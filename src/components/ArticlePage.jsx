@@ -14,6 +14,7 @@ export default function ArticlePage() {
   const [voteCount, setVoteCount] = useState(0);
   const [comments, setComments] = useState([]);
   const [postComment, setPostComment] = useState(null);
+  const [posted, setPosted] = useState(0);
 
   const { article_id } = useParams();
 
@@ -26,8 +27,9 @@ export default function ArticlePage() {
     });
     fetchCommentsByArticleId(article_id).then((res) => {
       setComments(res);
+      setPostComment(null);
     });
-  }, [article_id]);
+  }, [article_id, posted]);
 
   const handleVoteClick = () => {
     setVoteCount((currentCount) => {
@@ -80,8 +82,16 @@ export default function ArticlePage() {
           </div>
         </div>
       </div>
-      <button onClick={() => handlePostCommentClick()}>post a comment</button>
-      {postComment ? <NewComment id={article_id} /> : ""}
+      {postComment ? (
+        <NewComment setPosted={setPosted} id={article_id} />
+      ) : (
+        <button
+          className="btn btn-primary my-2"
+          onClick={() => handlePostCommentClick()}
+        >
+          post a comment
+        </button>
+      )}
       <div className="comments-container">
         <h3>comments</h3>
         {comments.map((comment) => {
