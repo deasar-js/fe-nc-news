@@ -5,13 +5,13 @@ export default function SortNav() {
     <>
       <div className="nav nav-tabs">
         <div className="row">
-          <Link className="col" to="/search?=date">
+          <Link className="col" to="/?sort=date">
             date
           </Link>
-          <Link className="col" to="/search?=comment_count">
+          <Link className="col" to="/?sort=comment_count">
             comment_count
           </Link>
-          <Link className="col" to="/search?=votes">
+          <Link className="col" to="/?sort=votes">
             votes
           </Link>
         </div>

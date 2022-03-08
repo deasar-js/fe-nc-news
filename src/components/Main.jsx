@@ -3,15 +3,22 @@ import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import Topics from "./Topics";
 import SortNav from "./SortNav";
+import { useSearchParams } from "react-router-dom";
 
 export default function Main() {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sort, setSort] = useState([]);
+  const [order, setOrder] = useState([]);
+
+  const [searchParams] = useSearchParams();
+  const preSort = searchParams.get("sort");
+  const preOrder = searchParams.get("order");
 
   useEffect(() => {
     setIsLoading(true);
     // work on params
-    fetchArticles("votes", "desc").then((data) => {
+    fetchArticles("votes").then((data) => {
       setArticlesList(data);
       setIsLoading(false);
     });
