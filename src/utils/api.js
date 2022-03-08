@@ -41,3 +41,11 @@ export function fetchCommentsByArticleId(article_id) {
     return data.comments;
   });
 }
+
+export function postComment(article_id, comment) {
+  return api
+    .post(`/article/${article_id}/comments`, comment)
+    .then(({ data }) => {
+      console.log(data, "comment post api");
+    });
+}

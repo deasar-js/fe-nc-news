@@ -6,12 +6,14 @@ import {
   fetchCommentsByArticleId,
 } from "../utils/api";
 import CommentCard from "./CommentCard";
+import NewComment from "./NewComment";
 
 export default function ArticlePage() {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
   const [comments, setComments] = useState([]);
+  const [postComment, setPostComment] = useState(null);
 
   const { article_id } = useParams();
 
@@ -36,6 +38,10 @@ export default function ArticlePage() {
     });
   };
 
+  const handlePostCommentClick = () => {
+    setPostComment(true);
+  };
+
   if (isLoading) {
     return <h3>...is loading</h3>;
   }
@@ -58,7 +64,6 @@ export default function ArticlePage() {
                 </p>
                 <p className="card-text col-md-4">{voteCount} votes</p>
               </div>
-
               <button
                 id="like"
                 className="btn btn-primary my-4"
@@ -75,6 +80,8 @@ export default function ArticlePage() {
           </div>
         </div>
       </div>
+      <button onClick={() => handlePostCommentClick()}>post a comment</button>
+      {postComment ? <NewComment /> : ""}
       <div className="comments-container">
         <h3>comments</h3>
         {comments.map((comment) => {
