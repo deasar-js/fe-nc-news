@@ -9,7 +9,6 @@ export default function Topics() {
   useEffect(() => {
     fetchTopics().then((res) => {
       setIsLoading(true);
-      console.log(res);
       setTopics(res);
       setIsLoading(false);
     });

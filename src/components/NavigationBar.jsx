@@ -7,7 +7,7 @@ export default function NavigationBar() {
         <nav className="navbar navbar-light bg-light">
           <div className="col-md-4">
             <Link to="/">
-              <span className="navbar-brand mb-0 mx-1 h1">Sup</span>
+              <span className="navbar-brand mb-0 mx-2 h1">Sup</span>
             </Link>
           </div>
           <div className="col-md-6"></div>

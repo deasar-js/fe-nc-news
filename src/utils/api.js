@@ -21,3 +21,23 @@ export function fetchArticlesByTopic(topic) {
     return data.articles;
   });
 }
+
+export function fetchArticlesById(article_id) {
+  return api.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+}
+
+export function patchVotesById(article_id) {
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data;
+    });
+}
+
+export function fetchCommentsByArticleId(article_id) {
+  return api.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+}

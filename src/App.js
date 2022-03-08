@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import Main from "./components/Main";
 import TopicPage from "./components/TopicPage";
+import ArticlePage from "./components/ArticlePage";
+import ErrorPage from "./components/ErrorPage";
 
 export default function App() {
   // const [loggedInUser, setLoggedInUser] = useState({
@@ -20,6 +22,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/topics/:topic" element={<TopicPage />} />
+          <Route path="/post/:article_id" element={<ArticlePage />} />
+          <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </div>
     </>
