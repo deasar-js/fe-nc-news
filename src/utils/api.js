@@ -26,10 +26,6 @@ export function fetchArticlesById(article_id) {
   return api.get(`/articles/${article_id}`).then(({ data }) => {
     return data.article;
   });
-  // .catch((err) => {
-  //   console.log(err, "<API ");
-  //   return err;
-  // });
 }
 
 export function patchVotesById(article_id) {

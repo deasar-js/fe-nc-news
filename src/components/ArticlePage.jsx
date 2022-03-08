@@ -24,17 +24,15 @@ export default function ArticlePage() {
         setArticle(res);
         setVoteCount(res.votes);
         setIsLoading(false);
+        setError(null);
       })
       .catch((err) => {
-        console.log(err.status, "<<<");
         setError(err);
       });
     fetchCommentsByArticleId(article_id).then((res) => {
       setComments(res);
     });
   }, [article_id]);
-
-  console.log(error, "<<<< error");
 
   const handleVoteClick = () => {
     setVoteCount((currentCount) => {
