@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import Topics from "./Topics";
+import SortNav from "./SortNav";
 
 export default function Main() {
   const [articlesList, setArticlesList] = useState([]);
@@ -9,7 +10,8 @@ export default function Main() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticles().then((data) => {
+    // work on params
+    fetchArticles("votes", "desc").then((data) => {
       setArticlesList(data);
       setIsLoading(false);
     });
@@ -21,6 +23,7 @@ export default function Main() {
 
   return (
     <div>
+      <SortNav />
       <Topics />
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;

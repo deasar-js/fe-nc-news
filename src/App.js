@@ -23,6 +23,7 @@ export default function App() {
           <Route path="/" element={<Main />} />
           <Route path="/topics/:topic" element={<TopicPage />} />
           <Route path="/post/:article_id" element={<ArticlePage />} />
+          <Route path="/search" element={<Main />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>
       </div>
