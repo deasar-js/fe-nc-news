@@ -6,6 +6,8 @@ import {
   fetchCommentsByArticleId,
 } from "../utils/api";
 import CommentCard from "./CommentCard";
+
+import NewComment from "./NewComment";
 import ErrorPage from "./ErrorPage";
 
 export default function ArticlePage() {
@@ -13,7 +15,12 @@ export default function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
   const [comments, setComments] = useState([]);
+
+  const [postComment, setPostComment] = useState(null);
+  const [posted, setPosted] = useState(0);
+
   const [error, setError] = useState(null);
+
 
   const { article_id } = useParams();
 
@@ -31,8 +38,9 @@ export default function ArticlePage() {
       });
     fetchCommentsByArticleId(article_id).then((res) => {
       setComments(res);
+      setPostComment(null);
     });
-  }, [article_id]);
+  }, [article_id, posted]);
 
   const handleVoteClick = () => {
     setVoteCount((currentCount) => {
@@ -42,9 +50,17 @@ export default function ArticlePage() {
       console.log(res);
     });
   };
+
+
+  const handlePostCommentClick = () => {
+    setPostComment(true);
+  };
+
+
   if (error) {
     return <ErrorPage message={error} />;
   }
+
   if (isLoading) {
     return <h3>...is loading</h3>;
   }
@@ -67,7 +83,6 @@ export default function ArticlePage() {
                 </p>
                 <p className="card-text col-md-4">{voteCount} votes</p>
               </div>
-
               <button
                 id="like"
                 className="btn btn-primary my-4"
@@ -84,6 +99,16 @@ export default function ArticlePage() {
           </div>
         </div>
       </div>
+      {postComment ? (
+        <NewComment setPosted={setPosted} id={article_id} />
+      ) : (
+        <button
+          className="btn btn-primary my-2"
+          onClick={() => handlePostCommentClick()}
+        >
+          post a comment
+        </button>
+      )}
       <div className="comments-container">
         <h3>comments</h3>
         {comments.map((comment) => {
