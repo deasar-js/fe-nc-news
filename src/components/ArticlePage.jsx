@@ -6,26 +6,35 @@ import {
   fetchCommentsByArticleId,
 } from "../utils/api";
 import CommentCard from "./CommentCard";
+import ErrorPage from "./ErrorPage";
 
 export default function ArticlePage() {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
   const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
 
   const { article_id } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticlesById(article_id).then((res) => {
-      setArticle(res);
-      setVoteCount(res.votes);
-      setIsLoading(false);
-    });
+    fetchArticlesById(article_id)
+      .then((res) => {
+        setArticle(res);
+        setVoteCount(res.votes);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.status, "<<<");
+        setError(err);
+      });
     fetchCommentsByArticleId(article_id).then((res) => {
       setComments(res);
     });
   }, [article_id]);
+
+  console.log(error, "<<<< error");
 
   const handleVoteClick = () => {
     setVoteCount((currentCount) => {
@@ -35,7 +44,9 @@ export default function ArticlePage() {
       console.log(res);
     });
   };
-
+  if (error) {
+    return <ErrorPage message={error} />;
+  }
   if (isLoading) {
     return <h3>...is loading</h3>;
   }
