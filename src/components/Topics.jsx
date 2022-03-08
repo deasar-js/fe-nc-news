@@ -21,7 +21,7 @@ export default function Topics() {
   return (
     <div className="nav nav-tabs">
       <div className="row">
-        <h1>topics</h1>
+        <h2>topics</h2>
         {topics.map((topic) => {
           return (
             <div className="nav-item col">
