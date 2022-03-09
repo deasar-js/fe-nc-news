@@ -12,17 +12,8 @@ export default function Topics() {
   }, []);
 
   return (
-    <div className="nav-item dropdown col-lg-2">
-      <button
-        className="drop btn btn-primary btn-sml dropdown-toggle"
-        href="#"
-        id="navbarDropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        topics
-      </button>
+    <div className="nav-item dropdown dropdown-toggle mx-3">
+      <span>topics</span>
       <div className="dropdown-content">
         <ul className="no-bullets">
           {topics.map((topic) => {

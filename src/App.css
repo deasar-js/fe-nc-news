@@ -41,6 +41,9 @@ ul.no-bullets {
   letter-spacing: 1px;
 }
 
+span {
+  font-weight: 600;
+}
 .btn:focus {
   outline: none;
   box-shadow: none;

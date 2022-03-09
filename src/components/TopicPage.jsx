@@ -30,7 +30,7 @@ export default function TopicPage() {
   return (
     <div>
       <QueryNav />
-      <h3 className="my-2">#{topic}</h3>
+      <h5 className="mt-2">#{topic}</h5>
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}

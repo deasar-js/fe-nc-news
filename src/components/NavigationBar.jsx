@@ -4,7 +4,7 @@ export default function NavigationBar() {
   return (
     <>
       <header className="row">
-        <nav className="navbar navbar-light bg-light">
+        <nav className="navbar navbar-light fixed-top bg-light">
           <div className="col-md-4"></div>
           <div className="g-col-md-4">
             <Link to="/">
