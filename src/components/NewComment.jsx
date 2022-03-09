@@ -12,7 +12,6 @@ export default function NewComment({ setPosted, id }) {
       username: username,
       body: comment,
     }).then((res) => {
-      console.log(res, "< newComment response");
       setCommentPosted(res.comment_id);
       setUsername("");
       setComment("");
@@ -20,7 +19,7 @@ export default function NewComment({ setPosted, id }) {
         setPosted((preValue) => {
           return preValue + 1;
         });
-      }, 3000);
+      }, 2000);
     });
   };
 

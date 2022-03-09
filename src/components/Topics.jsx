@@ -30,7 +30,7 @@ export default function Topics() {
         <h4>topics</h4>
         {topics.map((topic) => {
           return (
-            <div className="nav-item col">
+            <div key={topic.slug} className="nav-item col">
               <Link to={`/topics/${topic.slug}`}>#{topic.slug}</Link>
             </div>
           );

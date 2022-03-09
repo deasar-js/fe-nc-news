@@ -10,26 +10,12 @@ export function fetchTopics() {
   });
 }
 
-export function fetchArticles(sort_by = "created_at", order = "desc") {
-  // working on paramStr for querying
-  let paramStr = "/articles";
-  if (sort_by || order) {
-    paramStr += "?";
-  }
-  if (sort_by) {
-    paramStr += `sort_by=${sort_by}`;
-  }
-  if (sort_by && order) {
-    paramStr += "&";
-  }
-  if (order) {
-    paramStr += `order=${order}`;
-  }
-  console.log(paramStr);
-
-  return api.get(paramStr).then(({ data }) => {
-    return data.articles;
-  });
+export function fetchArticles(sort_by, order, topic) {
+  return api
+    .get("/articles", { params: { sort_by, order, topic } })
+    .then(({ data }) => {
+      return data.articles;
+    });
 }
 
 export function fetchArticlesByTopic(topic) {
