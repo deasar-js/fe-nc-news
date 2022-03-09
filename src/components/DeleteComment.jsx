@@ -1,9 +1,10 @@
 import { removeCommentById } from "../utils/api";
-import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 export default function DeleteComment() {
   const [deleted, setDeleted] = useState();
+
   const { comment_id } = useParams();
 
   console.log(comment_id, "<<<id");
@@ -20,6 +21,7 @@ export default function DeleteComment() {
 
   return (
     <div className="delete-container">
+      <Link to="/">return home</Link>
       {deleted !== undefined ? (
         <div className="alert alert-success my-2" role="alert">
           <p className="alert-heading">comment deleted </p>{" "}

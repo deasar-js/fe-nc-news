@@ -13,7 +13,9 @@ export default function ArticleCard({ article }) {
             <Link to={`/post/${article.article_id}`}>read more</Link>
             <p className="card-text">{article.comment_count} comments</p>
             <p>{article.votes} votes</p>
-            <footer className="blockquote-footer">{article.created_at}</footer>
+            <footer className="blockquote-footer">
+              {Date(article.created_at)}
+            </footer>
           </div>
         </div>
       </div>

@@ -21,7 +21,6 @@ export default function ArticlePage() {
 
   const [error, setError] = useState(null);
 
-
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -51,11 +50,9 @@ export default function ArticlePage() {
     });
   };
 
-
   const handlePostCommentClick = () => {
     setPostComment(true);
   };
-
 
   if (error) {
     return <ErrorPage message={error} />;
@@ -93,7 +90,7 @@ export default function ArticlePage() {
                 Vote
               </button>
               <footer className="blockquote-footer">
-                {article.created_at}
+                {Date(article.created_at)}
               </footer>
             </div>
           </div>

@@ -16,7 +16,9 @@ export default function CommentCard({ comment }) {
             </Link>
             <p className="card-text my-2">{comment.body}</p>
             <p>{comment.votes} votes</p>
-            <footer className="blockquote-footer">{comment.created_at}</footer>
+            <footer className="blockquote-footer">
+              {Date(comment.created_at)}
+            </footer>
           </div>
         </div>
       </div>

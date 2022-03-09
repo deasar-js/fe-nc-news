@@ -57,7 +57,8 @@ export function removeCommentById(comment_id) {
   return api
     .delete(`/comments/${comment_id}`)
     .then((data) => {
-      console.log(data);
+      console.log(data.status, "<<< api res");
+      return data;
     })
     .catch((err) => {
       console.log(err);
