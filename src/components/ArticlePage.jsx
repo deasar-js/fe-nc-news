@@ -70,7 +70,7 @@ export default function ArticlePage() {
 
   return (
     <>
-      <div className="article-card-wrapper my-4">
+      <div className="article-card-wrapper my-4 mx-2">
         <div className="col-md">
           <div className="card">
             <div className="card-body">
@@ -88,14 +88,14 @@ export default function ArticlePage() {
               </div>
               <button
                 id="like"
-                className="btn btn-primary my-4"
+                className="btn btn-primary my-3"
                 onClick={() => {
                   handleVoteClick();
                 }}
               >
                 Vote
               </button>
-              <footer className="blockquote-footer">
+              <footer className="blockquote-footer my-2">
                 {article.created_at}
               </footer>
             </div>
@@ -106,13 +106,13 @@ export default function ArticlePage() {
         <NewComment setPosted={setPosted} id={article_id} />
       ) : (
         <button
-          className="btn btn-primary my-2"
+          className="btn btn-primary mx-2 my-2"
           onClick={() => handlePostCommentClick()}
         >
           post a comment
         </button>
       )}
-      <div className="comments-container my-3">
+      <div className="comments-container mx-2 my-3">
         <h3>comments</h3>
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;

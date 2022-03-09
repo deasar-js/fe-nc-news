@@ -31,15 +31,15 @@ export default function NewComment({ setPosted, id }) {
         </div>
       ) : (
         <div className="col-md">
-          <div className="card my-2">
-            <form className="my-3 mx-3" onSubmit={handlePostComment}>
+          <div className="card mx-2 my-2">
+            <form className="my-3 mx-4" onSubmit={handlePostComment}>
               <label htmlFor="username" className="my-1">
                 @username
               </label>
               <br />
               <input
                 id="username"
-                className="my-1"
+                className="my-2"
                 type="text"
                 value={username}
                 placeholder="username"
@@ -52,18 +52,18 @@ export default function NewComment({ setPosted, id }) {
                 write a comment
               </label>
               <br />
-              <input
+              <textarea
                 id="new-comment"
-                className="my-1"
+                className="my-2"
                 type="text"
                 value={comment}
                 style={{ height: "200px", width: "100%" }}
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}
-              ></input>
+              ></textarea>
               <br />
-              <button type="submit" className="btn btn-primary my-2">
+              <button type="submit" className="btn btn-primary my-3">
                 send comment
               </button>
             </form>

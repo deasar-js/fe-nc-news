@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { fetchArticlesByTopic } from "../utils/api";
-import Topics from "./Topics";
 import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
-
+import QueryNav from "./QueryNav";
 export default function TopicPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [articlesList, setArticlesList] = useState([]);
@@ -30,7 +29,7 @@ export default function TopicPage() {
 
   return (
     <div>
-      <Topics />
+      <QueryNav />
       <h3 className="my-2">#{topic}</h3>
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;

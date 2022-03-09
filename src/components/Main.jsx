@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
-import Topics from "./Topics";
 import QueryNav from "./QueryNav";
 import { useSearchParams } from "react-router-dom";
 
@@ -33,7 +32,6 @@ export default function Main() {
 
   return (
     <div>
-      <Topics />
       <QueryNav />
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;

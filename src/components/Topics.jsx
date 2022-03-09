@@ -4,37 +4,35 @@ import { Link } from "react-router-dom";
 
 export default function Topics() {
   const [topics, setTopics] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchTopics().then((res) => {
-      setIsLoading(true);
       setTopics(res);
-      setIsLoading(false);
     });
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="text-center my-5">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="nav nav-tabs">
-      <div className="row">
-        <h4>topics</h4>
-        {topics.map((topic) => {
-          return (
-            <div key={topic.slug} className="nav-item col">
-              <Link to={`/topics/${topic.slug}`}>#{topic.slug}</Link>
-            </div>
-          );
-        })}
+    <div className="nav-item dropdown col-lg-2">
+      <button
+        className="drop btn btn-primary btn-sml dropdown-toggle"
+        href="#"
+        id="navbarDropdownMenuLink"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        topics
+      </button>
+      <div className="dropdown-content">
+        <ul className="no-bullets">
+          {topics.map((topic) => {
+            return (
+              <li key={topic.slug}>
+                <Link to={`/topics/${topic.slug}`}>#{topic.slug}</Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
