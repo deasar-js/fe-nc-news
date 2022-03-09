@@ -19,7 +19,9 @@ export default function Topics() {
           {topics.map((topic) => {
             return (
               <li key={topic.slug}>
-                <Link to={`/topics/${topic.slug}`}>#{topic.slug}</Link>
+                <Link className="no-styling" to={`/topics/${topic.slug}`}>
+                  #{topic.slug}
+                </Link>
               </li>
             );
           })}

@@ -28,6 +28,15 @@ ul.no-bullets {
   margin: 0;
 }
 
+.no-styling {
+  text-decoration: none;
+  color: grey;
+}
+
+.read-more {
+  text-decoration: none;
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus {

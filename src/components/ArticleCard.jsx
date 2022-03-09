@@ -10,7 +10,9 @@ export default function ArticleCard({ article }) {
             <h6 className="card-subtitle mb-2 text-muted">{article.author}</h6>
             <p>#{article.topic}</p>
             <p className="card-text">{article.body.substring(0, 30) + "..."}</p>
-            <Link to={`/post/${article.article_id}`}>read more</Link>
+            <Link className="read-more" to={`/post/${article.article_id}`}>
+              read more
+            </Link>
             <div className="row my-3">
               <p className="card-text col">{article.comment_count} comments</p>
               <p className="card-text col">{article.votes} votes</p>
