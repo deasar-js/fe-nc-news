@@ -42,7 +42,8 @@ export default function NewComment({ setPosted, id }) {
                 className="my-2"
                 type="text"
                 value={username}
-                placeholder="username"
+                style={{ height: "35px", width: "100%" }}
+                placeholder=" username"
                 onChange={(e) => {
                   setUsername(e.target.value);
                 }}
@@ -57,7 +58,8 @@ export default function NewComment({ setPosted, id }) {
                 className="my-2"
                 type="text"
                 value={comment}
-                style={{ height: "200px", width: "100%" }}
+                style={{ height: "150px", width: "100%" }}
+                placeholder=" ..."
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}

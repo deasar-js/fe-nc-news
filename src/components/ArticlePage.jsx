@@ -70,7 +70,7 @@ export default function ArticlePage() {
 
   return (
     <>
-      <div className="article-card-wrapper my-4 mx-2">
+      <div className="article-card-wrapper my-4 mt-5 mx-2">
         <div className="col-md">
           <div className="card">
             <div className="card-body">
