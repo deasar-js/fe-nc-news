@@ -2,33 +2,30 @@ import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import Topics from "./Topics";
-import SortNav from "./SortNav";
+import QueryNav from "./QueryNav";
 import { useSearchParams } from "react-router-dom";
 
 export default function Main() {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [sort, setSort] = useState([]);
-  const [order, setOrder] = useState([]);
 
   const [searchParams] = useSearchParams();
-  const preSort = searchParams.get("sort");
-  const preOrder = searchParams.get("order");
+  const sort = searchParams.get("sort");
+  const order = searchParams.get("order");
 
   useEffect(() => {
     setIsLoading(true);
-    // work on params
-    fetchArticles("votes").then((data) => {
+    fetchArticles(sort, order).then((data) => {
       setArticlesList(data);
       setIsLoading(false);
     });
-  }, []);
+  }, [sort, order]);
 
   if (isLoading) {
     return (
-      <div class="text-center my-5">
-        <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+      <div className="text-center my-5">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     );
@@ -37,7 +34,7 @@ export default function Main() {
   return (
     <div>
       <Topics />
-      <SortNav />
+      <QueryNav />
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
