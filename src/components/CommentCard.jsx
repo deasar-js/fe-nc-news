@@ -1,3 +1,5 @@
+import DeleteComment from "./DeleteComment";
+
 export default function CommentCard({ comment }) {
   return (
     <div className="article-card-wrapper">
@@ -7,6 +9,13 @@ export default function CommentCard({ comment }) {
             <h6 className="card-title">
               <strong>@{comment.author}</strong>
             </h6>
+            <button
+              type="button"
+              onClick={<DeleteComment />}
+              id="comment-delete"
+            >
+              test delete
+            </button>
             <p className="card-text my-2">{comment.body}</p>
             <p>{comment.votes} votes</p>
             <footer className="blockquote-footer">{comment.created_at}</footer>

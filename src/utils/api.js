@@ -43,11 +43,21 @@ export function fetchCommentsByArticleId(article_id) {
 }
 
 export function postComment(article_id, comment) {
-  console.log(article_id, comment, "api pre post");
   return api
     .post(`/articles/${article_id}/comments`, comment)
     .then(({ data }) => {
       return data.comment;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+export function removeCommentById(comment_id) {
+  return api
+    .delete(`/comments/${comment_id}`)
+    .then((data) => {
+      console.log(data);
     })
     .catch((err) => {
       console.log(err);
