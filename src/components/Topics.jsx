@@ -15,17 +15,23 @@ export default function Topics() {
   }, []);
 
   if (isLoading) {
-    return <h3>...is loading</h3>;
+    return (
+      <div className="text-center my-5">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="nav nav-tabs">
       <div className="row">
-        <h1>topics</h1>
+        <h4>topics</h4>
         {topics.map((topic) => {
           return (
-            <div className="nav-item col">
-              <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
+            <div key={topic.slug} className="nav-item col">
+              <Link to={`/topics/${topic.slug}`}>#{topic.slug}</Link>
             </div>
           );
         })}

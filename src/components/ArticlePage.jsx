@@ -21,7 +21,6 @@ export default function ArticlePage() {
 
   const [error, setError] = useState(null);
 
-
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -51,18 +50,22 @@ export default function ArticlePage() {
     });
   };
 
-
   const handlePostCommentClick = () => {
     setPostComment(true);
   };
-
 
   if (error) {
     return <ErrorPage message={error} />;
   }
 
   if (isLoading) {
-    return <h3>...is loading</h3>;
+    return (
+      <div class="text-center my-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -109,7 +112,7 @@ export default function ArticlePage() {
           post a comment
         </button>
       )}
-      <div className="comments-container">
+      <div className="comments-container my-3">
         <h3>comments</h3>
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
