@@ -34,26 +34,32 @@ export default function User() {
   return (
     <>
       {loggedInUser ? (
-        <div className="card my-5 mx-3">
-          <div className="card-body">
-            <h4 className="card-title">@{loggedInUser.username}</h4>
-            <p className="card-subtitle">{loggedInUser.name}</p>
-            <img
-              src={loggedInUser.avatar_url}
-              className="thumbnail img-fluid mx-auto my-4 rounded"
-              alt={loggedInUser.username}
-            />
-            <br />
-            <button
-              id="pop-btn"
-              type="button"
-              onClick={() => setLoggedInUser("")}
-              className="btn btn-primary my-4"
-            >
-              log out
-            </button>
+        <>
+          <div className="row">
+            <div className="col-7 col-lg-5">
+              <div className="card mt-5 mx-5">
+                <div className="card-body">
+                  <img
+                    src={loggedInUser.avatar_url}
+                    className=" card-img-top img-fluid mx-auto my-4 rounded"
+                    alt={loggedInUser.username}
+                  />
+                  <br />
+                  <h4 className="card-title">@{loggedInUser.username}</h4>
+                  <p className="card-subtitle">{loggedInUser.name}</p>
+                </div>
+              </div>
+              <button
+                id="pop-btn"
+                type="button"
+                onClick={() => setLoggedInUser("")}
+                className="btn btn-primary my-3 mx-5"
+              >
+                log out
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <>
           <h4 className="mt-5">Login</h4>
