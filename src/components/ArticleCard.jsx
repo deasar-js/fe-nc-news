@@ -58,8 +58,8 @@ export default function ArticleCard({ article }) {
                 </svg>
               </p>
             </div>
-            <footer className="blockquote-footer my-0">
-              {article.created_at}
+            <footer className="blockquote-footer">
+              {Date(article.created_at)}
             </footer>
           </div>
         </div>
