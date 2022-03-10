@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postComment } from "../utils/api";
+import { UserContext } from "./contexts/UserContext";
 
 export default function NewComment({ setPosted, id }) {
   const [comment, setComment] = useState("");
   const [username, setUsername] = useState("");
   const [commentPosted, setCommentPosted] = useState();
+
+  const { loggedInUser } = useContext(UserContext);
 
   const handlePostComment = (e) => {
     e.preventDefault();
@@ -43,7 +46,7 @@ export default function NewComment({ setPosted, id }) {
                 type="text"
                 value={username}
                 style={{ height: "35px", width: "100%" }}
-                placeholder=" username"
+                placeholder={loggedInUser.username}
                 onChange={(e) => {
                   setUsername(e.target.value);
                 }}

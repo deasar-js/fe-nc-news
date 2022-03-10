@@ -5,14 +5,14 @@ export default function NavigationBar() {
     <>
       <header className="row">
         <nav className="navbar navbar-light fixed-top bg-light">
-          <div className="col-md-4"></div>
-          <div className="g-col-md-4">
+          <div className="col-sm-4 col-md-5"></div>
+          <div className="g-col-md-3 text-center">
             <Link to="/">
-              <span className="navbar-brand k mb-0 mx-4 h1">Sup</span>
+              <span className="navbar-brand k mb-0 mx-5 h1">Sup</span>
             </Link>
           </div>
-          <div className="col-md-6 col-lg-6"></div>
-          <div className="col-sm-2 col-md-2 col-lg-2 col-xl-2 mx-6">
+
+          <div className="dropdown col-sm-2 col-md-2 col-lg-2 col-xl-2">
             <Link to="/users">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

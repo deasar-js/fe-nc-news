@@ -1,5 +1,10 @@
 .img-fluid {
   width: 20% !important;
+}
+
+.btn-primary {
+  background-color: cornflowerblue !important;
+}
 
 .dropdown {
   position: relative;
@@ -58,7 +63,7 @@ ul.no-bullets {
 
 .btn {
   padding: 0px 0px;
-  border: 0 none;
+  border: 0 none !important;
   font-weight: 700;
 }
 
@@ -71,8 +76,8 @@ span {
   color: grey;
 }
 .btn:focus {
-  outline: none;
-  box-shadow: none;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .btn {

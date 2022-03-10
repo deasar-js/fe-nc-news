@@ -34,7 +34,7 @@ export default function User() {
   return (
     <>
       {loggedInUser ? (
-        <div className="card my-3 mx-3">
+        <div className="card my-5 mx-3">
           <div className="card-body">
             <h4 className="card-title">@{loggedInUser.username}</h4>
             <p className="card-subtitle">{loggedInUser.name}</p>
@@ -45,6 +45,7 @@ export default function User() {
             />
             <br />
             <button
+              id="pop-btn"
               type="button"
               onClick={() => setLoggedInUser("")}
               className="btn btn-primary my-4"
@@ -55,7 +56,7 @@ export default function User() {
         </div>
       ) : (
         <>
-          <h4 className="my-3">Login</h4>
+          <h4 className="mt-5">Login</h4>
           <div className="create-btn-wrapper mx-3">
             <div className="col-md">
               <div className="card my-2">
@@ -78,7 +79,11 @@ export default function User() {
                     <p className="err-msg">{message}</p>
                   </div> */}
                   <br />
-                  <button type="submit" className="btn btn-primary my-2">
+                  <button
+                    id="pop-btn"
+                    type="submit"
+                    className="btn btn-primary my-2"
+                  >
                     log in
                   </button>
                 </form>
