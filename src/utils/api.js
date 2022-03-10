@@ -16,10 +16,12 @@ export function fetchTopics() {
   });
 }
 
-export function fetchArticles() {
-  return api.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export function fetchArticles(sort_by, order, topic) {
+  return api
+    .get("/articles", { params: { sort_by, order, topic } })
+    .then(({ data }) => {
+      return data.articles;
+    });
 }
 
 export function fetchArticlesByTopic(topic) {

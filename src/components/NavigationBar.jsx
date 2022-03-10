@@ -4,10 +4,11 @@ export default function NavigationBar() {
   return (
     <>
       <header className="row">
-        <nav className="navbar navbar-light bg-light">
-          <div className="col-md-4">
+        <nav className="navbar navbar-light fixed-top bg-light">
+          <div className="col-md-4"></div>
+          <div className="g-col-md-4">
             <Link to="/">
-              <span className="navbar-brand mb-0 mx-2 h1">Sup</span>
+              <span className="navbar-brand k mb-0 mx-4 h1">Sup</span>
             </Link>
           </div>
           <div className="col-md-6 col-lg-6"></div>

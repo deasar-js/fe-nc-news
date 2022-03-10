@@ -6,11 +6,11 @@ export default function CommentCard({ comment }) {
   const { loggedInUser } = useContext(UserContext);
   return (
     <div className="article-card-wrapper">
-      <div className="col-md">
-        <div className="card">
+      <div className="col-md my-3">
+        <div className="card border-0 border-bottom">
           <div className="card-body">
             <div className="row">
-              <h6 className="card-title col">
+              <h6 className="card-title topic">
                 <strong>@{comment.author}</strong>
               </h6>
               {loggedInUser.username === comment.author ? (

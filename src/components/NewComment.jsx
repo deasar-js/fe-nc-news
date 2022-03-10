@@ -12,7 +12,6 @@ export default function NewComment({ setPosted, id }) {
       username: username,
       body: comment,
     }).then((res) => {
-      console.log(res, "< newComment response");
       setCommentPosted(res.comment_id);
       setUsername("");
       setComment("");
@@ -20,7 +19,7 @@ export default function NewComment({ setPosted, id }) {
         setPosted((preValue) => {
           return preValue + 1;
         });
-      }, 3000);
+      }, 2000);
     });
   };
 
@@ -32,18 +31,19 @@ export default function NewComment({ setPosted, id }) {
         </div>
       ) : (
         <div className="col-md">
-          <div className="card my-2">
-            <form className="my-3 mx-3" onSubmit={handlePostComment}>
+          <div className="card mx-2 my-2">
+            <form className="my-3 mx-4" onSubmit={handlePostComment}>
               <label htmlFor="username" className="my-1">
                 @username
               </label>
               <br />
               <input
                 id="username"
-                className="my-1"
+                className="my-2"
                 type="text"
                 value={username}
-                placeholder="username"
+                style={{ height: "35px", width: "100%" }}
+                placeholder=" username"
                 onChange={(e) => {
                   setUsername(e.target.value);
                 }}
@@ -53,18 +53,23 @@ export default function NewComment({ setPosted, id }) {
                 write a comment
               </label>
               <br />
-              <input
+              <textarea
                 id="new-comment"
-                className="my-1"
+                className="my-2"
                 type="text"
                 value={comment}
-                style={{ height: "200px", width: "100%" }}
+                style={{ height: "150px", width: "100%" }}
+                placeholder=" what do you think?"
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}
-              ></input>
+              ></textarea>
               <br />
-              <button type="submit" className="btn btn-primary my-2">
+              <button
+                id="pop-btn"
+                type="submit"
+                className="btn btn-primary my-2"
+              >
                 send comment
               </button>
             </form>
