@@ -74,7 +74,7 @@ export default function ArticlePage() {
         <div className="col-md">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">{article.title}</h5>
+              <h5 className="card-title title-main">{article.title}</h5>
               <h6 className="card-subtitle mb-2 text-muted mx-1">
                 @{article.author}
               </h6>

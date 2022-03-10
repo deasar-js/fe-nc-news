@@ -20,16 +20,25 @@ export default function DeleteComment() {
   console.log(deleted, "<<< deleted");
 
   return (
-    <div className="delete-container">
-      <Link to="/">return home</Link>
+    <div className="delete-container mt-5">
+      <Link className="no-styling" to="/">
+        back
+      </Link>
       {deleted !== undefined ? (
         <div className="alert alert-success my-2" role="alert">
           <p className="alert-heading">comment deleted </p>{" "}
         </div>
       ) : (
-        <div>
-          <h3>Are you sure you want to delete the comment</h3>
-          <button type="button" onClick={handleDelete}>
+        <div className="confirm-delete my-3">
+          <h3 className="title-main">
+            Are you sure you want to delete the comment
+          </h3>
+          <button
+            type="button"
+            id="pop-btn"
+            className="btn btn-primary mt-3"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </div>

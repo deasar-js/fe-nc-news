@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Cairo:wght@700&family=Playfair+Display&display=swap");
+
+.navbar-brand {
+  font-family: "Cairo", sans-serif;
+}
+
+.title-main {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
 .img-fluid {
   width: 20% !important;
 }
@@ -42,7 +52,7 @@ ul.no-bullets {
 }
 
 .r-btn {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .title-main {
@@ -62,9 +72,9 @@ ul.no-bullets {
 }
 
 .btn {
-  padding: 0px 0px;
+  padding: 3px 9px;
   border: 0 none !important;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 #pop-btn {
