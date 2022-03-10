@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { fetchUsers } from "../utils/api";
 import { UserContext } from "./contexts/UserContext";
-import { Link } from "react-router-dom";
 
 export default function User() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,27 +24,25 @@ export default function User() {
         if (user.username === username && user.username.length > 0) {
           setLoggedInUser(user);
           setUsername("");
-        } else {
-          console.log("error");
-          //   return (
-          //     <div className="alert alert-warning my-5" role="alert">
-          //       <p htmlFor="username">A simple warning alert—check it out!</p>
-          //     </div>
-          //   );
         }
       });
     }
   };
 
   console.log(loggedInUser, "<<logged in");
+
   return (
     <>
       {loggedInUser ? (
-        <div className="card my-2">
+        <div className="card my-3 mx-3">
           <div className="card-body">
             <h4 className="card-title">@{loggedInUser.username}</h4>
             <p className="card-subtitle">{loggedInUser.name}</p>
-            <img src={loggedInUser.avatar_url} alt={loggedInUser.username} />
+            <img
+              src={loggedInUser.avatar_url}
+              className="thumbnail img-fluid mx-auto my-4 rounded"
+              alt={loggedInUser.username}
+            />
             <br />
             <button
               type="button"
@@ -77,6 +74,9 @@ export default function User() {
                       setUsername(e.target.value);
                     }}
                   ></input>
+                  {/* <div className="errorbutton">
+                    <p className="err-msg">{message}</p>
+                  </div> */}
                   <br />
                   <button type="submit" className="btn btn-primary my-2">
                     log in
