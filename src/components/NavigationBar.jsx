@@ -33,7 +33,7 @@ export default function NavigationBar() {
             <div className="dropdown-content">
               <ul className="no-bullets">
                 <li>
-                  <Link className="no-styling" to="/users">
+                  <Link className="no-styling" to="/user">
                     {loggedInUser ? "profile" : "sign in"}
                   </Link>
                 </li>

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useParams, Link } from "react-router-dom";
 import {
   fetchArticlesById,
   patchVotesById,
@@ -9,18 +9,18 @@ import CommentCard from "./CommentCard";
 
 import NewComment from "./NewComment";
 import ErrorPage from "./ErrorPage";
+import { UserContext } from "./contexts/UserContext";
 
 export default function ArticlePage() {
   const [article, setArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
   const [comments, setComments] = useState([]);
-
   const [postComment, setPostComment] = useState(null);
   const [posted, setPosted] = useState(0);
-
   const [error, setError] = useState(null);
 
+  const { loggedInUser } = useContext(UserContext);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -120,7 +120,13 @@ export default function ArticlePage() {
         </div>
       </div>
       {postComment ? (
-        <NewComment setPosted={setPosted} id={article_id} />
+        loggedInUser ? (
+          <NewComment setPosted={setPosted} id={article_id} />
+        ) : (
+          <>
+            <Link to="/user">You must be signed in to post a comment</Link>
+          </>
+        )
       ) : (
         <button
           id="pop-btn"
