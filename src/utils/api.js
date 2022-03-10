@@ -4,6 +4,12 @@ const api = axios.create({
   baseURL: "https://deasar-news-app.herokuapp.com/api",
 });
 
+export function fetchUsers() {
+  return api.get("/users").then(({ data }) => {
+    return data.users;
+  });
+}
+
 export function fetchTopics() {
   return api.get("/topics").then(({ data }) => {
     return data.topics;
