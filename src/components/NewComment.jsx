@@ -59,13 +59,17 @@ export default function NewComment({ setPosted, id }) {
                 type="text"
                 value={comment}
                 style={{ height: "150px", width: "100%" }}
-                placeholder=" ..."
+                placeholder=" what do you think?"
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}
               ></textarea>
               <br />
-              <button type="submit" className="btn btn-primary my-3">
+              <button
+                id="pop-btn"
+                type="submit"
+                className="btn btn-primary my-2"
+              >
                 send comment
               </button>
             </form>

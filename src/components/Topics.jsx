@@ -12,7 +12,7 @@ export default function Topics() {
   }, []);
 
   return (
-    <div className="nav-item dropdown dropdown-toggle mx-3">
+    <div className="nav-item dropdown mx-3">
       <span>topics</span>
       <div className="dropdown-content">
         <ul className="no-bullets">
@@ -20,7 +20,7 @@ export default function Topics() {
             return (
               <li key={topic.slug}>
                 <Link className="no-styling" to={`/topics/${topic.slug}`}>
-                  #{topic.slug}
+                  {topic.slug}
                 </Link>
               </li>
             );

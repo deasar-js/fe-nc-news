@@ -6,7 +6,7 @@ export default function SortNav() {
     <>
       <div className="nav justify-content-center mt-5">
         <Topics />
-        <div className="nav-item dropdown dropdown-toggle my-sm-0 mx-5">
+        <div className="nav-item dropdown my-sm-0 mx-5">
           <span>sort by</span>
           <div className="dropdown-content">
             <ul className="no-bullets">
@@ -28,7 +28,7 @@ export default function SortNav() {
             </ul>
           </div>
         </div>
-        <div className="nav-item dropdown dropdown-toggle mx-3">
+        <div className="nav-item dropdown mx-3">
           <span>order</span>
           <div className="dropdown-content">
             <ul className="no-bullets">

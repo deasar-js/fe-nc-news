@@ -33,8 +33,18 @@ ul.no-bullets {
   color: grey;
 }
 
+.r-btn {
+  border-radius: 10px;
+}
+
+.title-main {
+  text-decoration: none;
+  color: black;
+}
+
 .read-more {
   text-decoration: none;
+  color: black;
 }
 
 .btn:focus,
@@ -47,11 +57,15 @@ ul.no-bullets {
   padding: 0px 0px;
   border: 0 none;
   font-weight: 700;
-  letter-spacing: 1px;
+}
+
+#pop-btn {
+  border-radius: 20px;
 }
 
 span {
-  font-weight: 600;
+  font-weight: 500;
+  color: grey;
 }
 .btn:focus {
   outline: none;
@@ -68,6 +82,7 @@ input {
   width: 100%;
   display: block;
   border-color: lightgrey;
+  font-weight: 400;
 }
 input {
   border-style: solid;
@@ -75,4 +90,13 @@ input {
   border-width: 1px;
   vertical-align: top;
   text-align: left;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.topic {
+  color: cornflowerblue;
+  font-weight: 500;
 }
