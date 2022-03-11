@@ -5,23 +5,29 @@ import { UserContext } from "./contexts/UserContext";
 export default function NewComment({ setPosted, id }) {
   const [comment, setComment] = useState("");
   const [commentPosted, setCommentPosted] = useState();
+  const [message, setMessage] = useState("");
 
   const { loggedInUser } = useContext(UserContext);
 
   const handlePostComment = (e) => {
     e.preventDefault();
-    postComment(id, {
-      username: loggedInUser.username,
-      body: comment,
-    }).then((res) => {
-      setCommentPosted(res.comment_id);
-      setComment("");
-      setTimeout(() => {
-        setPosted((preValue) => {
-          return preValue + 1;
-        });
-      }, 2000);
-    });
+    if (comment.length > 0) {
+      postComment(id, {
+        username: loggedInUser.username,
+        body: comment,
+      }).then((res) => {
+        setCommentPosted(res.comment_id);
+        setComment("");
+        setTimeout(() => {
+          setPosted((preValue) => {
+            return preValue + 1;
+          });
+        }, 2000);
+      });
+    } else {
+      console.log("must have content");
+      setMessage("hmm... comment is empty");
+    }
   };
 
   return (
@@ -51,10 +57,14 @@ export default function NewComment({ setPosted, id }) {
                   setComment(e.target.value);
                 }}
               ></textarea>
-              <br />
-              <button id="pop-btn" type="submit" className="btn btn-primary">
+              <button
+                id="pop-btn"
+                type="submit"
+                className="btn btn-primary my-2"
+              >
                 send comment
               </button>
+              <p>{message}</p>
             </form>
           </div>
         </div>
