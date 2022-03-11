@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Cairo:wght@700&family=Playfair+Display&display=swap");
 
+#nav-dropdown {
+  background: none !important;
+  padding: 0;
+}
+
+.drop {
+  border-color: white !important;
+  margin-right: 5px;
+}
+
 .navbar-brand {
   font-family: "Cairo", sans-serif;
 }
