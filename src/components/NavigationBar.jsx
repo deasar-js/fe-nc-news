@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "./contexts/UserContext";
 
 export default function NavigationBar() {
-  const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
   console.log(loggedInUser, "< navbar");
   return (
@@ -16,7 +16,10 @@ export default function NavigationBar() {
             </Link>
           </div>
 
-          <div className="navber-item dropdown ms-auto k bm-0 mx-5">
+          <div
+            className="navber-item dropdown ms-auto show k bm-0 mx-5"
+            aria-expanded="true"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -37,6 +40,13 @@ export default function NavigationBar() {
                     {loggedInUser ? "profile" : "sign in"}
                   </Link>
                 </li>
+                {loggedInUser ? (
+                  <li>
+                    <p onClick={() => setLoggedInUser("")}>sign out</p>
+                  </li>
+                ) : (
+                  ""
+                )}
               </ul>
             </div>
           </div>
