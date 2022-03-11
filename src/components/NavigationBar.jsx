@@ -36,13 +36,19 @@ export default function NavigationBar() {
             <div className="dropdown-content">
               <ul className="no-bullets">
                 <li>
-                  <Link className="no-styling" to="/user">
-                    {loggedInUser ? "profile" : "sign in"}
+                  <Link id="sign" className="no-styling" to="/user">
+                    {loggedInUser ? "Profile" : "Sign in"}
                   </Link>
                 </li>
                 {loggedInUser ? (
                   <li>
-                    <p onClick={() => setLoggedInUser("")}>sign out</p>
+                    <p
+                      id="sign"
+                      className="no-styling"
+                      onClick={() => setLoggedInUser("")}
+                    >
+                      Sign out
+                    </p>
                   </li>
                 ) : (
                   ""
