@@ -20,7 +20,6 @@ export default function TopicPage() {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err.message, "topic page");
         setError(err);
       });
   }, [topic]);

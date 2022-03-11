@@ -13,7 +13,6 @@ export default function Topics() {
         setTopics(res);
       })
       .catch((err) => {
-        console.log(err.message, "topicxs");
         setError(err);
       });
   }, []);

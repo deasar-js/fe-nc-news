@@ -5,7 +5,6 @@ import { UserContext } from "./contexts/UserContext";
 export default function NavigationBar() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
-  console.log(loggedInUser, "< navbar");
   return (
     <>
       <header className="container">
@@ -42,13 +41,14 @@ export default function NavigationBar() {
                 </li>
                 {loggedInUser ? (
                   <li>
-                    <p
+                    <Link
                       id="sign"
                       className="no-styling"
+                      to=""
                       onClick={() => setLoggedInUser("")}
                     >
                       Sign out
-                    </p>
+                    </Link>
                   </li>
                 ) : (
                   ""

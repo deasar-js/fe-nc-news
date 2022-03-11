@@ -22,7 +22,6 @@ export default function Main() {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log(err.message);
         setError(err);
       });
   }, [sort, order]);

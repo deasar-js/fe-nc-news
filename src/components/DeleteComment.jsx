@@ -7,17 +7,12 @@ export default function DeleteComment() {
 
   const { comment_id } = useParams();
 
-  console.log(comment_id, "<<<id");
-
   const handleDelete = (e) => {
     e.preventDefault();
     removeCommentById(comment_id).then((res) => {
-      console.log(res.status);
       setDeleted(res.status);
     });
   };
-
-  console.log(deleted, "<<< deleted");
 
   return (
     <div className="delete-container mt-5">

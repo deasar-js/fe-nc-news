@@ -47,9 +47,7 @@ export default function ArticlePage() {
       setVoteCount((currentCount) => {
         return currentCount + 1;
       });
-      patchVotesById(article_id).then((res) => {
-        console.log(res);
-      });
+      patchVotesById(article_id).then((res) => {});
       setVoted(true);
     }
     // else {

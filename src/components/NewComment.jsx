@@ -25,7 +25,6 @@ export default function NewComment({ setPosted, id }) {
         }, 2000);
       });
     } else {
-      console.log("must have content");
       setMessage("hmm... comment is empty");
     }
   };

@@ -21,21 +21,27 @@ export default function User() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    {
-      users.forEach((user) => {
-        if (user.username === username && user.username.length > 0) {
-          setLoggedInUser(user);
-          setUsername("");
-          setIsValid(true);
-        }
-      });
-      if (!isValid) {
-        setMessage("Your username is incorrect");
+    users.forEach((user) => {
+      if (user.username === username && user.username.length > 0) {
+        setLoggedInUser(user);
+        setUsername("");
+        setIsValid(true);
       }
+    });
+    if (!isValid) {
+      setMessage("Your username is incorrect");
     }
   };
 
-  console.log(loggedInUser, "<<logged in");
+  if (isLoading) {
+    return (
+      <div className="text-center my-5">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
