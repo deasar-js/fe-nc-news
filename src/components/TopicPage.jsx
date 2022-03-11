@@ -3,6 +3,7 @@ import { fetchArticlesByTopic } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
 import QueryNav from "./QueryNav";
+
 export default function TopicPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [articlesList, setArticlesList] = useState([]);

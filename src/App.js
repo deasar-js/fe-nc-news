@@ -25,7 +25,7 @@ export default function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/users" element={<User />} />
+            <Route path="/user" element={<User />} />
             <Route path="/topics/:topic" element={<TopicPage />} />
             <Route path="/post/:article_id" element={<ArticlePage />} />
             <Route path="/comment/:comment_id" element={<DeleteComment />} />

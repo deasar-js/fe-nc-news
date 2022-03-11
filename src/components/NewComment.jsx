@@ -4,7 +4,6 @@ import { UserContext } from "./contexts/UserContext";
 
 export default function NewComment({ setPosted, id }) {
   const [comment, setComment] = useState("");
-  const [username, setUsername] = useState("");
   const [commentPosted, setCommentPosted] = useState();
 
   const { loggedInUser } = useContext(UserContext);
@@ -12,11 +11,10 @@ export default function NewComment({ setPosted, id }) {
   const handlePostComment = (e) => {
     e.preventDefault();
     postComment(id, {
-      username: username,
+      username: loggedInUser.username,
       body: comment,
     }).then((res) => {
       setCommentPosted(res.comment_id);
-      setUsername("");
       setComment("");
       setTimeout(() => {
         setPosted((preValue) => {
@@ -36,22 +34,8 @@ export default function NewComment({ setPosted, id }) {
         <div className="col-md">
           <div className="card mx-2 my-2">
             <form className="my-3 mx-4" onSubmit={handlePostComment}>
-              <label htmlFor="username" className="my-1">
-                @username
-              </label>
-              <br />
-              <input
-                id="username"
-                className="my-2"
-                type="text"
-                value={username}
-                style={{ height: "35px", width: "100%" }}
-                placeholder={loggedInUser.username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              ></input>
-              <br />
+              <label className="my-1">hey,</label>
+              <h6>@{loggedInUser.username}</h6>
               <label htmlFor="new-comment" className="my-1">
                 write a comment
               </label>
@@ -68,11 +52,7 @@ export default function NewComment({ setPosted, id }) {
                 }}
               ></textarea>
               <br />
-              <button
-                id="pop-btn"
-                type="submit"
-                className="btn btn-primary my-2"
-              >
+              <button id="pop-btn" type="submit" className="btn btn-primary">
                 send comment
               </button>
             </form>
