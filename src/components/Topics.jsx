@@ -1,15 +1,26 @@
 import { fetchTopics } from "../utils/api";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
 export default function Topics() {
   const [topics, setTopics] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchTopics().then((res) => {
-      setTopics(res);
-    });
+    fetchTopics()
+      .then((res) => {
+        setTopics(res);
+      })
+      .catch((err) => {
+        console.log(err.message, "topicxs");
+        setError(err);
+      });
   }, []);
+
+  if (error) {
+    return <ErrorPage error={error} />;
+  }
 
   return (
     <div className="nav-item dropdown mx-3">
