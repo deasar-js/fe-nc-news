@@ -3,10 +3,12 @@ import { fetchArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import QueryNav from "./QueryNav";
 import { useSearchParams } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
 export default function Main() {
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const [searchParams] = useSearchParams();
   const sort = searchParams.get("sort");
@@ -14,11 +16,20 @@ export default function Main() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticles(sort, order).then((data) => {
-      setArticlesList(data);
-      setIsLoading(false);
-    });
+    fetchArticles(sort, order)
+      .then((data) => {
+        setArticlesList(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err);
+      });
   }, [sort, order]);
+
+  if (error) {
+    return <ErrorPage error={error} />;
+  }
 
   if (isLoading) {
     return (

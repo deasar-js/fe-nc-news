@@ -3,20 +3,31 @@ import { fetchArticlesByTopic } from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import { useParams } from "react-router-dom";
 import QueryNav from "./QueryNav";
+import ErrorPage from "./ErrorPage";
 
 export default function TopicPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [articlesList, setArticlesList] = useState([]);
+  const [error, setError] = useState(null);
 
   const { topic } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticlesByTopic(topic).then((res) => {
-      setArticlesList(res);
-      setIsLoading(false);
-    });
+    fetchArticlesByTopic(topic)
+      .then((res) => {
+        setArticlesList(res);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err.message, "topic page");
+        setError(err);
+      });
   }, [topic]);
+
+  if (error) {
+    return <ErrorPage error={error} />;
+  }
 
   if (isLoading) {
     return (
