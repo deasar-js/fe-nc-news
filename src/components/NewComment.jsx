@@ -42,7 +42,7 @@ export default function NewComment({ setPosted, id }) {
             <form className="my-3 mx-4" onSubmit={handlePostComment}>
               <label className="my-1">hey,</label>
               <h6>@{loggedInUser.username}</h6>
-              <label htmlFor="new-comment" className="my-1">
+              <label htmlFor="new-comment" className="card-text my-1">
                 write a comment
               </label>
               <br />
@@ -64,7 +64,7 @@ export default function NewComment({ setPosted, id }) {
               >
                 send comment
               </button>
-              <div class="alert alert-light" role="alert">
+              <div className="alert alert-light" role="alert">
                 {message}
               </div>
             </form>

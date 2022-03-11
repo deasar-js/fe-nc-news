@@ -3,6 +3,12 @@
 .navbar-brand {
   font-family: "Cairo", sans-serif;
 }
+p.card-text {
+  font-size: 0.9rem;
+}
+label {
+  font-size: 0.9rem;
+}
 
 .title-main {
   font-family: "Barlow Condensed", sans-serif;

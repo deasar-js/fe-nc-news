@@ -43,7 +43,7 @@ export default function User() {
         <>
           <div className="row">
             <div className="col-7 col-lg-5">
-              <div className="card mt-5 mx-3">
+              <div className="card text-center mt-5 mx-3">
                 <div className="card-body">
                   <img
                     src={loggedInUser.avatar_url}
