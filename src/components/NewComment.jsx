@@ -60,11 +60,13 @@ export default function NewComment({ setPosted, id }) {
               <button
                 id="pop-btn"
                 type="submit"
-                className="btn btn-primary my-2"
+                className="btn btn-primary mt-2"
               >
                 send comment
               </button>
-              <p>{message}</p>
+              <div class="alert alert-light" role="alert">
+                {message}
+              </div>
             </form>
           </div>
         </div>

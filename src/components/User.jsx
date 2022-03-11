@@ -6,6 +6,8 @@ export default function User() {
   const [isLoading, setIsLoading] = useState(true);
   const [users, setUsers] = useState([]);
   const [username, setUsername] = useState("");
+  const [message, setMessage] = useState("");
+  const [isValid, setIsValid] = useState(null);
 
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
@@ -24,8 +26,12 @@ export default function User() {
         if (user.username === username && user.username.length > 0) {
           setLoggedInUser(user);
           setUsername("");
+          setIsValid(true);
         }
       });
+      if (!isValid) {
+        setMessage("Your username is incorrect");
+      }
     }
   };
 
@@ -53,9 +59,9 @@ export default function User() {
                 id="pop-btn"
                 type="button"
                 onClick={() => setLoggedInUser("")}
-                className="btn btn-primary my-3 mx-5"
+                className="btn btn-primary my-2 mx-5"
               >
-                log out
+                Sign out
               </button>
             </div>
           </div>
@@ -81,16 +87,15 @@ export default function User() {
                       setUsername(e.target.value);
                     }}
                   ></input>
-                  {/* <div className="errorbutton">
-                    <p className="err-msg">{message}</p>
-                  </div> */}
-                  <br />
+                  <div class="alert alert-light" role="alert">
+                    {message}
+                  </div>
                   <button
                     id="pop-btn"
                     type="submit"
                     className="btn btn-primary my-2"
                   >
-                    log in
+                    Sign in
                   </button>
                 </form>
               </div>
