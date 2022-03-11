@@ -43,7 +43,7 @@ export default function ArticlePage() {
   }, [article_id, posted]);
 
   const handleVoteClick = () => {
-    if (!voted) {
+    if (loggedInUser && !voted) {
       setVoteCount((currentCount) => {
         return currentCount + 1;
       });
