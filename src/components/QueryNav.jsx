@@ -11,17 +11,17 @@ export default function SortNav() {
           <div className="dropdown-content">
             <ul className="no-bullets">
               <li>
-                <Link className="col no-styling" to="/?sort=created_at">
+                <Link className="col no-styling" to="?sort=created_at">
                   date
                 </Link>
               </li>
               <li>
-                <Link className="col no-styling" to="/?sort=comment_count">
+                <Link className="col no-styling" to="?sort=comment_count">
                   comment_count
                 </Link>
               </li>
               <li>
-                <Link className="col no-styling" to="/?sort=votes">
+                <Link className="col no-styling" to="?sort=votes">
                   votes
                 </Link>
               </li>
@@ -33,12 +33,12 @@ export default function SortNav() {
           <div className="dropdown-content">
             <ul className="no-bullets">
               <li>
-                <Link className="col no-styling" to="/?order=asc">
+                <Link className="col no-styling" to="?order=asc">
                   ascending
                 </Link>
               </li>
               <li>
-                <Link className="col no-styling" to="/?order=desc">
+                <Link className="col no-styling" to="?order=desc">
                   descending
                 </Link>
               </li>

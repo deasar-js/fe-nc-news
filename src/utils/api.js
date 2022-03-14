@@ -18,7 +18,9 @@ export function fetchTopics() {
 
 export function fetchArticles(sort_by, order, topic) {
   return api
-    .get("/articles", { params: { sort_by, order, topic } })
+    .get("/articles", {
+      params: { sort_by: sort_by, order: order, topic: topic },
+    })
     .then(({ data }) => {
       return data.articles;
     });
