@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "./contexts/UserContext";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row } from "react-bootstrap";
 
 export default function CommentCard({ comment }) {
   const { loggedInUser } = useContext(UserContext);
