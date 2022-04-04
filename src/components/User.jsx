@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { fetchUsers } from "../utils/api";
 import { UserContext } from "./contexts/UserContext";
+import { Container, Card, Image, Button, Form } from "react-bootstrap";
 
 export default function User() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,43 +48,45 @@ export default function User() {
     <>
       {loggedInUser ? (
         <>
-          <div className="row">
-            <div className="col-7 col-lg-5">
-              <div className="card text-center mt-5 mx-3">
-                <div className="card-body">
-                  <img
-                    src={loggedInUser.avatar_url}
-                    className=" card-img-top img-fluid mx-auto my-4 rounded"
-                    alt={loggedInUser.username}
-                  />
-                  <br />
-                  <h4 className="card-title">@{loggedInUser.username}</h4>
-                  <p className="card-subtitle">{loggedInUser.name}</p>
-                </div>
-              </div>
-              <button
+          <Container>
+            <Card className="justify-content-center mt-5 p-3 border-light shadow-sm">
+              <Card.Body>
+                <Image
+                  src={loggedInUser.avatar_url}
+                  alt={loggedInUser.username}
+                  width="250"
+                />
+                <br />
+                <Card.Title className="card-title">
+                  @{loggedInUser.username}
+                </Card.Title>
+                <p className="card-subtitle">{loggedInUser.name}</p>
+              </Card.Body>
+            </Card>
+            <Container className="text-center my-3">
+              <Button
                 id="pop-btn"
                 type="button"
                 onClick={() => setLoggedInUser("")}
-                className="btn btn-primary my-2 mx-5"
+                className="btn btn-primary "
               >
                 Sign out
-              </button>
-            </div>
-          </div>
+              </Button>
+            </Container>
+          </Container>
         </>
       ) : (
         <>
-          <h4 className="mt-5">Login</h4>
-          <div className="create-btn-wrapper mx-3">
+          <h4 className="mt-5">Sign in</h4>
+          <Container className="create-btn-wrapper">
             <div className="col-md">
               <div className="card my-2">
-                <form className="my-3 mx-3" onSubmit={handleSubmit}>
+                <Form className="my-3 mx-3" onSubmit={handleSubmit}>
                   <label htmlFor="username" className="my-1">
                     @username
                   </label>
                   <br />
-                  <input
+                  <Form.Control
                     id="username"
                     className="my-1"
                     type="text"
@@ -92,21 +95,23 @@ export default function User() {
                     onChange={(e) => {
                       setUsername(e.target.value);
                     }}
-                  ></input>
+                  ></Form.Control>
                   <div class="alert alert-light" role="alert">
                     {message}
                   </div>
-                  <button
-                    id="pop-btn"
-                    type="submit"
-                    className="btn btn-primary my-2"
-                  >
-                    Sign in
-                  </button>
-                </form>
+                  <Container className="text-center">
+                    <button
+                      id="pop-btn"
+                      type="submit"
+                      className="btn btn-primary"
+                    >
+                      Sign in
+                    </button>
+                  </Container>
+                </Form>
               </div>
             </div>
-          </div>
+          </Container>
         </>
       )}
     </>

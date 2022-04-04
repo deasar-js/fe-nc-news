@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import Topics from "./Topics";
+import { Nav } from "react-bootstrap";
 
 export default function SortNav() {
   return (
     <>
-      <div className="nav justify-content-center mt-5">
+      <Nav className="nav justify-content-center mt-5 mb-2">
         <Topics />
         <div className="nav-item dropdown my-sm-0 mx-5">
           <span>sort by</span>
@@ -45,7 +46,7 @@ export default function SortNav() {
             </ul>
           </div>
         </div>
-      </div>
+      </Nav>
     </>
   );
 }

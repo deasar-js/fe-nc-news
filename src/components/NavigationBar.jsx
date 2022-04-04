@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "./contexts/UserContext";
+import { Navbar, Container } from "react-bootstrap";
 
 export default function NavigationBar() {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
   return (
     <>
-      <header className="container">
-        <nav className="navbar navbar-light fixed-top bg-light">
+      <Navbar bg="light">
+        <Container fluid className="navbar navbar-light fixed-top bg-light">
           <div className="nav-item">
             <Link to="/">
               <span className="navbar-brand k mb-0 mx-5 h1">sup?</span>
@@ -68,8 +69,8 @@ export default function NavigationBar() {
               )}
             </ul>
           </div>
-        </nav>
-      </header>
+        </Container>
+      </Navbar>
     </>
   );
 }
