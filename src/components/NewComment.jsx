@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { postComment } from "../utils/api";
 import { UserContext } from "./contexts/UserContext";
-import { Container, Form, Card, FormControl } from "react-bootstrap";
+import { Container, Form, Card } from "react-bootstrap";
 
 export default function NewComment({ setPosted, id }) {
   const [comment, setComment] = useState("");
