@@ -4,6 +4,7 @@ import ArticleCard from "./ArticleCard";
 import QueryNav from "./QueryNav";
 import { useSearchParams } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import { Container } from "react-bootstrap";
 
 export default function Main() {
   const [articlesList, setArticlesList] = useState([]);
@@ -41,11 +42,11 @@ export default function Main() {
   }
 
   return (
-    <div>
+    <Container>
       <QueryNav />
       {articlesList.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;
       })}
-    </div>
+    </Container>
   );
 }
