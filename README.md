@@ -51,11 +51,13 @@ Node v17.3.0
 ## How to run this project locally
 
 1. Clone this repo to your local environment
-
+```bash
 git clone <https://github.com/deasar-js/fe-nc-news>
-
+```
 2. cd into the repo
 
-3. $run npm install
-
-4. $run npm start
+3. run scripts
+```bash
+run npm install
+run npm start
+```
