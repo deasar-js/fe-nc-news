@@ -52,7 +52,7 @@ Node v17.3.0
 
 1. Clone this repo to your local environment
 ```bash
-git clone <https://github.com/deasar-js/fe-nc-news>
+git clone https://github.com/deasar-js/fe-nc-news
 ```
 2. cd into the repo
 
